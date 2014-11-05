@@ -1,0 +1,36 @@
+﻿@model RegistrationVm
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section JavascriptInHead
+{
+    <script src="~/Scripts/Courses/courses-controller.js"></script>
+    <script type="text/javascript">
+        registrationModule.factory('bootstrappedData', function() {
+            return {
+                courses: @Html.Raw(Model.Courses),
+                instructors: @Html.Raw(Model.Instructors)
+        }
+        });
+    </script>
+}
+
+<div class="container" ng-controller="CoursesController">
+    <div class="row">
+        <div class="span10">
+            <table class="table table-condensed table-hover">
+                <tr>
+                    <th>Course</th>
+                    <th>Course Name</th>
+                    <th>Instructor</th>
+                </tr>
+                <tr ng-repeat="course in courses">
+                    <th>{{course.number}}</th>
+                    <th>{{course.name}}</th>
+                    <th>{{course.instructor}}</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
