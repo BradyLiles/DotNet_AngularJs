@@ -7,7 +7,7 @@ namespace Angular4DotNetMVC.Models.Registration
 {
     public class RegistrationVmBuilder
     {
-        public RegistrationVm BuilRegistrationVm()
+        public RegistrationVm BuildRegistrationVm()
         {
             var registrationVm = new RegistrationVm
             {

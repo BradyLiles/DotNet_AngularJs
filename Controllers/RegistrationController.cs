@@ -9,7 +9,7 @@ namespace Angular4DotNetMVC.Controllers
 
         public ActionResult Index()
         {
-            return View(_registrationVmBuilder.BuilRegistrationVm());
+            return View(_registrationVmBuilder.BuildRegistrationVm());
         }
 
     }
