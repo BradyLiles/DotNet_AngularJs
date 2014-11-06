@@ -1,23 +1,11 @@
 ﻿using Angular4DotNetMVC.Models.Courses;
 using Angular4DotNetMVC.Models.Instructors;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Angular4DotNetMVC.Models.Registration
 {
     public class RegistrationVmBuilder
     {
-        public RegistrationVm BuildRegistrationVm()
-        {
-            var registrationVm = new RegistrationVm
-            {
-                Courses = GetSerializedCourses(),
-                Instructors = GetSerializedInstructors()
-            };
-
-            return registrationVm;
-        }
-        public string GetSerializedCourses()
+        public CourseVm[] GetCourseVms()
         {
             var courses = new[]
             {
@@ -25,12 +13,10 @@ namespace Angular4DotNetMVC.Models.Registration
                 new CourseVm {Number = "CS202", Name = "Course Name 2", Instructor = "instructor2"},
                 new CourseVm {Number = "CS303", Name = "Course Name 3", Instructor = "instructor3"}
             };
-            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
-            var serializedCourses = JsonConvert.SerializeObject(courses, Formatting.None, settings);
-            return serializedCourses;
+            return courses;
         }
 
-        public string GetSerializedInstructors()
+        public InstructorVm[] GetInstructorVms()
         {
             var instructors = new[]
             {
@@ -38,9 +24,8 @@ namespace Angular4DotNetMVC.Models.Registration
                 new InstructorVm {Name = "instructor2", Email = "instructor2@email.com", RoomNumber = "200"},
                 new InstructorVm {Name = "instructor3", Email = "instructor3@email.com", RoomNumber = "300"}
             };
-            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
-            var serialiedInstructors = JsonConvert.SerializeObject(instructors, Formatting.None, settings);
-            return serialiedInstructors;
+
+            return instructors;
         }
          
     }
