@@ -1,7 +1,11 @@
-﻿registrationModule.factory('accountRepository', function ($http) {
+﻿registrationModule.factory('accountRepository', function ($http, $q) {
     return {
-        save: function(student) {
-            $http.post('/Account/Save', student);
+        save: function (student) {
+            var deferred = $q.defer();
+            $http.post('/Account/Save', student)
+                .success(function() { deferred.resolve(); })
+                .error(function() { deferred.reject(); });
+            return deferred.promise;
         }
     };
 });

@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="form-group">
             <label>First Name</label>
             <input type="text" ng-model="student.firstName" class="form-control"/>
@@ -22,5 +22,6 @@
             <input type="text" ng-model="student.password" class="form-control" />
         </div>
         <button class="btn btn-default" ng-click="save(student)">Create Account</button>
+        <div style="color: red;" ng-show="error">An error has occurred saving your account.</div>
     </div>
 </div>

@@ -9,7 +9,12 @@ namespace Angular4DotNetMVC.Controllers
         public ActionResult Save(StudentVm student)
         {
            //_studentRegistrationService.Register(student);
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+        }
+
+        public ActionResult Index()
+        {
+            return View();
         }
 
     }

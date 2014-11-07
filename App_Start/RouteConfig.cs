@@ -24,6 +24,11 @@ namespace Angular4DotNetMVC
                 defaults: new { controller = "Registration", action = "Index" });
 
             routes.MapRoute(
+                name: "Registration SPA Create Account",
+                url: "Registration/CreateAccount",
+                defaults: new { controller = "Registration", action = "Index" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
